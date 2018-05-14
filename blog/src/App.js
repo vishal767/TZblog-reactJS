@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/one" component={Homepage} />
+        <Route path="/" component={Homepage} />
       </Router>
     );
   }

@@ -31,7 +31,7 @@ export class MainNav extends React.Component {
     return (
       <div>
         <Navbar color="transparent" light expand="md">
-          <NavbarBrand href="/">Blog-Title</NavbarBrand>
+          <NavbarBrand href="/">T-Z Blogs</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

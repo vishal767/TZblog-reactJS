@@ -26,10 +26,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
+ul.ml-auto.navbar-nav{
+  margin-right:30px;
+}
 .navbar-light .navbar-brand {
     color: rgba(0,0,0,.9);
-
 }
 .sign-up{
   border : 1px solid grey;
@@ -45,4 +46,28 @@
 }
 .navbar-toggle {
     z-index:3;
+}
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+.nav-tabs {
+    text-align:center;
+}
+ul.nav{
+  margin: auto;
+width: fit-content;
+}
+.tablist > .nav-link {
+    display: block;
+    padding: .5rem 3rem !important;
+}
+ul > a{
+    color: #7f7f7f;
+}
+.card-size{
+  width:300px;
+  margin-left:30px;
+  margin-top:30px; 
 }
