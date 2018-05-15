@@ -69,5 +69,36 @@ ul > a{
 .card-size{
   width:300px;
   margin-left:30px;
-  margin-top:30px; 
+  margin-top:30px;
+}
+.Cards-trends{
+  width:fit-content;
+}
+.Main-story{
+  width:40%;
+}
+.Main-heading{
+  text-align:left;
+  text-transform: capitalize;
+}
+.fa{
+  margin:0px 15px;
+}
+.date-auth{
+  text-transform: uppercase;
+  font-size:10px;
+}
+.blog-img{
+  width:100%;
+}
+.img-caption{
+  text-transform: CAPITALIZE;
+  font-size: 14px;
+  color: #7f7f7f;
+}
+.blog-content{
+  margin-top: 20px;
+  text-align: left;
+  font-size: 16px;
+  line-height:2;
 }

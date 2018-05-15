@@ -39,7 +39,7 @@ export class TrendCards extends Component {
       );
     });
     return (
-      <div className="Cards-trends">
+      <div className="Cards-trends col-md-3">
         {slides}
       </div>
     );
