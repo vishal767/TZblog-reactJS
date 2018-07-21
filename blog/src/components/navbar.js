@@ -13,48 +13,25 @@ import {
   DropdownItem } from 'reactstrap';
 import Popup from 'react-popup';
 import {signupPopup} from './signup_popup';
+import {Prompt} from './prompt';
 import '../App.css';
 
-class Prompt extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            value: this.props.value
-        };
-
-        this.onChange = (e) => this._onChange(e);
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.value !== this.state.value) {
-            this.props.onChange(this.state.value);
-        }
-    }
-
-    _onChange(e) {
-        let value = e.target.value;
-
-        this.setState({value: value});
-    }
-
-    render() {
-        return <input type={this.props.type} placeholder={this.props.placeholder} className="mm-popup__input" value={this.state.value} onChange={this.onChange} />;
-    }
-}
 
 export class MainNav extends React.Component {
   constructor(props) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
-    this.getpopup = this.getpopup.bind(this);
-    this.closepopup = this.closepopup.bind(this);
+    this.getSignInPopup = this.getSignInPopup.bind(this);
+    this.getSignUpPopup = this.getSignUpPopup.bind(this);
     this.state = {
+      promptText:null,
       isSigninOpen:false,
       isOpen: false
     };
     Popup.registerPlugin('prompt', function (defaultValue, placeholder, callback) {
+
       let promptValue = {};
       let promptChange = function (value) {
           promptValue.username = value;
@@ -68,6 +45,7 @@ export class MainNav extends React.Component {
           <Prompt onChange={promptChange} placeholder={"username or email"} value={""} type={"text"}/>
           <br/>
           <Prompt onChange={promptChange1} placeholder={"password"} value={""} type={"password"}/>
+          <div class="error-text">{defaultValue==undefined?<br/>:defaultValue}</div>
           </div>
         )
       }
@@ -81,7 +59,7 @@ export class MainNav extends React.Component {
                   key: '⌘+s',
 
                   action: function () {
-                    
+
                       callback(promptValue);
                       Popup.close();
                   }
@@ -89,7 +67,49 @@ export class MainNav extends React.Component {
             ]
           }
       });
-  });
+    });
+    Popup.registerPlugin('prompt1', function (defaultValue, placeholder, callback) {
+      let promptValue = {};
+      let promptChange = function (value) {
+          promptValue.email = value;
+      };
+      let promptChange1 = function (value) {
+          promptValue.password = value;
+      };
+      let promptChange2 = function (value) {
+          promptValue.username = value;
+      };
+      const Getcontent = () => {
+        return (
+          <div>
+          <Prompt onChange={promptChange2} placeholder={"Username"} value={""} type={"text"}/>
+          <br/>
+          <Prompt onChange={promptChange} placeholder={"email"} value={""} type={"email"}/>
+          <br/>
+          <Prompt onChange={promptChange1} placeholder={"password"} value={""} type={"password"}/>
+          <div class="error-text">{defaultValue==undefined?<br/>:defaultValue}</div>
+          </div>
+        )
+      }
+      this.create({
+          title: 'Sign Up',
+          content: <Getcontent/> ,
+          buttons: {
+
+              left: [{
+                  text: 'Login',
+                  key: '⌘+s',
+
+                  action: function () {
+
+                      callback(promptValue);
+                      Popup.close();
+                  }
+              },'cancel'
+            ]
+          }
+      });
+    });
   }
 
   toggle() {
@@ -98,17 +118,40 @@ export class MainNav extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
-  getpopup(){
-    console.log("ad");
-    Popup.plugins().prompt('', 'Username', function (value) {
-        console.log(value);
+  calllogin(quotes){
+    var x=this;
+    console.log("calling popup for login",this)
+    Popup.plugins().prompt(quotes, 'Username', function (value) {
+        if(value.username=="success")quotes=value.username;
+        else {
+          quotes="invalid username";
+        }
+        if(quotes =="success")return true;
+        else
+        x.calllogin("Invalid username");
     });
 
-
   }
-  closepopup(){
-    console.log("click1")
-
+  callSignup(quotes){
+    var x=this;
+    console.log("calling popup for Signup",this)
+    Popup.plugins().prompt1(quotes, 'Username', function (value) {
+        if(value.username=="success")quotes=value.username;
+        else {
+          quotes="invalid username";
+        }
+        if(quotes =="success")return true;
+        else
+        x.callSignup("Invalid username");
+    });
+  }
+  getSignInPopup(){
+    console.log("Sign in");
+    this.calllogin();
+  }
+  getSignUpPopup(){
+    console.log("Sign up")
+    this.callSignup();
   }
   render() {
     return (
@@ -120,10 +163,10 @@ export class MainNav extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto  highlight" navbar>
               <NavItem>
-                <NavLink  onClick={this.getpopup}>Sign in</NavLink>
+                <NavLink  onClick={this.getSignInPopup}>Sign in</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink  className="sign-up">Sign up</NavLink>
+                <NavLink onClick={this.getSignUpPopup} className="sign-up">Sign up</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

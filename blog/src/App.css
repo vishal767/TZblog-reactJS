@@ -105,6 +105,10 @@ ul > a{
 .highlight{
   z-index: 200;
 }
+.error-text{
+  color:red;
+  margin:5px auto;
+}
 /************************/
 
 .mm-popup {
@@ -222,7 +226,7 @@ ul > a{
             }
 
         .mm-popup__box__body {
-            padding: 20px;
+            padding: 20px 20px 0px 20px;
             line-height: 1.4;
             font-size: 14px;
             color: #454B4D;
