@@ -3,6 +3,7 @@ import {MainNav} from './navbar';
 import {NavTabs} from './navtabs';
 import {TrendCards} from './LeftCards';
 import {MainStory} from './MainStory';
+import {RightColumn} from './rightcolumn';
 export class Homepage extends Component {
   render() {
     return (
@@ -12,6 +13,7 @@ export class Homepage extends Component {
         <div className="row">
         <TrendCards/>
         <MainStory/>
+        <RightColumn/>
         </div>
       </div>
     );

@@ -109,6 +109,43 @@ ul > a{
   color:red;
   margin:5px auto;
 }
+svg rect {
+	fill: #529f52;
+}
+svg rect {
+  -webkit-transition: all 400ms;
+  -webkit-transform: scaleY(1);
+  -webkit-transform-origin: 50% 50%;
+}
+svg.minus rect {
+	fill: #dc6868;
+}
+svg.minus #Layer_1 rect {
+  -webkit-transition: all 600ms;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: 50% 50%;
+}
+.bg-red{
+  background: red;
+  width:200px;
+}
+.hotstory{
+  margin: 4%;
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+}
+.hotstory-heading{
+  font-size: 20px;
+  color:#2b2b2b;
+  text-transform: capitalize;
+  text-align: left;
+  margin: 10px auto;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.hotstory-ul{
+  text-align: left;
+}
 /************************/
 
 .mm-popup {
