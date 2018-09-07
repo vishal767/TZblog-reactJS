@@ -324,7 +324,37 @@ svg.minus #Layer_1 rect {
         .mm-popup__box--popover .mm-popup__box__body {
             padding: 20px;
         }
+.hotstory-ul li{
+  margin:10px auto;
+  padding:10px 0;
+  border-bottom :1px solid #dfdfdf;
+  width:90%;
+}
+.hotstory-ul {
+    text-align: left;
+    padding: 0;
+}
+.hotstory-ul li img{
+  width:100px;
+  height:100%;
+}
+.hotstory-text{
+  display: inline-block;
+vertical-align: top;
+padding-left: 10px;
+width: 63%;
+word-wrap: break-word;
+position: relative;
+    height: 100px;
+}
+.hotstory-text-readmore{
+  position:absolute;
+  bottom: 0;
+}
+.hotstory-text-heading{
 
+  font-size:18px;
+}
 @media (max-width: 420px) {
     .mm-popup__box {
         width: auto;

@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
 
 import '../App.css';
-
+import HotStoryImage from '../images/download.png';
 export class HotStory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      heading:"Hot Story"
+      heading:this.props.name
     }
   }
   render() {
+    const liItems=(
+      <li>
+          <img src={HotStoryImage} />
+          <div className="hotstory-text">
+            <div className="hotstory-text-heading">
+              First Story hotstory-text-heading
+            </div>
+
+            <div className="hotstory-text-readmore">
+              Read More
+            </div>
+          </div>
+      </li>
+    )
     return (
       <div className="hotstory">
         <div className="hotstory-heading">
@@ -18,8 +32,12 @@ export class HotStory extends Component {
         </div>
         <div>
           <ul className="hotstory-ul" type="none">
-            <li> <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" width="25px" height="25px"/> First Story</li>
-            <li> <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" width="25px" height="25px"/> second Story</li>
+            {liItems}
+            {liItems}
+            {liItems}
+            {liItems}
+            {liItems}
+            {liItems}
           </ul>
         </div>
       </div>

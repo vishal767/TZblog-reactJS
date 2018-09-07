@@ -10,7 +10,8 @@ export class RightColumn extends Component {
   render() {
     return (
       <div className="col-md-3 ">
-        <HotStory/>
+        <HotStory name={"Hot Story"}/>
+        <HotStory name={"Favorites"}/>
       </div>
     );
   }
